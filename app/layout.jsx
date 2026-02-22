@@ -1,4 +1,4 @@
-import "../public/assets/styles/globals.css";
+import "./globals.css";
 
 export const metadata = {
   title: "Dreame Balloons | Balloon Decor & Event Styling",

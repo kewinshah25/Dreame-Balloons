@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Anzeigen Grotesk T";
+  src: local("Anzeigen Grotesk T"),
+    url("/assets/fonts/anzeigenGroteskTRegular/anzeigengrot.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url("/assets/fonts/inter/medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #1a1a1a;
+  --extra-text-color: #4a4a4a;
+  --accent-color: #e63950;
+  --accent-hover: #c42d43;
+  --extra-accent-color: #fff5f6;
+  --card-dark-gray: #3d3d3d;
+  --card-light-gray: #6b6b6b;
+  --white: #ffffff;
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-full: 9999px;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --transition: 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: "Anzeigen Grotesk T", system-ui, sans-serif;
+  font-style: normal;
+  min-height: 100vh;
+  max-width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+body::-webkit-scrollbar {
+  appearance: none;
+  background: #00466e1a;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 100%;
+  width: 360px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 480px) {
+  .container {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    margin: 0 auto;
+  }
+}

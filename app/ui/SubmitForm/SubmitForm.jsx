@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./SubmitForm.css";
-import Baloon1 from "../../../public/assets/images/balloon1.png";
-import Baloon2 from "../../../public/assets/images/balloon2.png";
 
 const SubmitForm = () => {
   const [name, setName] = useState("");
@@ -81,16 +79,16 @@ const SubmitForm = () => {
       
 
       <Image
-        src={Baloon1}
-        alt='air baloon'
+        src="/assets/images/balloon1.png"
+        alt="Balloon"
         width={398}
         height={404}
         className='img-baloon first'
         priority
       />
       <Image
-        src={Baloon2}
-        alt='air baloon'
+        src="/assets/images/balloon2.png"
+        alt="Balloon"
         width={460}
         height={469}
         className='img-baloon second'

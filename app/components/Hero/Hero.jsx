@@ -2,16 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Baloon1 from "../../../public/assets/images/balloon1.png";
-import Baloon2 from "../../../public/assets/images/balloon2.png";
 import "./Hero.css";
 
 const Hero = () => {
   return (
     <section className='hero-section'>
       <Image
-        src={Baloon1}
-        alt='air baloon'
+        src="/assets/images/balloon1.png"
+        alt="Balloon"
         width={398}
         height={404}
         className='baloon-img first'
@@ -44,8 +42,8 @@ const Hero = () => {
         </motion.a>
       </motion.div>
       <Image
-        src={Baloon2}
-        alt='air baloon'
+        src="/assets/images/balloon2.png"
+        alt="Balloon"
         width={460}
         height={469}
         className='baloon-img second'
