@@ -109,11 +109,6 @@ input.errorBcg {
 
 .img-baloon {
   position: absolute;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
   display: none;
   z-index: -1;
 }
@@ -121,7 +116,6 @@ input.errorBcg {
 .img-baloon.first {
   width: 245px;
   height: 247px;
-  transform: rotate(0deg);
   top: 45px;
   left: -95px;
 }
@@ -129,8 +123,6 @@ input.errorBcg {
 .img-baloon.second {
   width: 247px;
   height: 250px;
-  transform: rotate(9deg);
-
   bottom: 40px;
   right: -70px;
 }
@@ -156,12 +148,10 @@ input.errorBcg {
     top: -130px;
     left: -200px;
   }
-
   .img-baloon.second {
     width: 383px;
     height: 390px;
     transform: rotate(9deg);
-
     bottom: 40px;
     right: -125px;
   }

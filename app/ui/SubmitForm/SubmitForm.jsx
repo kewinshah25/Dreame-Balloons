@@ -13,6 +13,8 @@ const SubmitForm = () => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showBalloon1, setShowBalloon1] = useState(true);
+  const [showBalloon2, setShowBalloon2] = useState(true);
 
   
   useEffect(() => {
@@ -76,24 +78,26 @@ const SubmitForm = () => {
 
   return (
     <div className='wrapper'>
-      
-
-      <Image
-        src="/assets/images/balloon1.png"
-        alt="Balloon"
-        width={398}
-        height={404}
-        className='img-baloon first'
-        priority
-      />
-      <Image
-        src="/assets/images/balloon2.png"
-        alt="Balloon"
-        width={460}
-        height={469}
-        className='img-baloon second'
-        priority
-      />
+      {showBalloon1 && (
+        <Image
+          src="/assets/images/balloon1.png"
+          alt=""
+          width={398}
+          height={404}
+          className='img-baloon first'
+          onError={() => setShowBalloon1(false)}
+        />
+      )}
+      {showBalloon2 && (
+        <Image
+          src="/assets/images/balloon2.png"
+          alt=""
+          width={460}
+          height={469}
+          className='img-baloon second'
+          onError={() => setShowBalloon2(false)}
+        />
+      )}
       <form onSubmit={handleSubmit} className='form'>
         <div className='container'>
           <div className='form-group'>

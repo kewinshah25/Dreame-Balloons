@@ -7,7 +7,8 @@
   justify-content: center;
   align-items: center;
   top: 0;
-  background: url(/assets/images/hero.jpg);
+  background-color: #e5e2de;
+  background-image: url(/assets/images/hero.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -18,41 +19,16 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.12) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.02) 50%, rgba(0,0,0,0.1) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
 .baloon-img {
   position: absolute;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  display: block;
   width: 520px;
   height: 530px;
-}
-
-@keyframes balloonAnimationFirst {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-100px);
-  }
-}
-
-@keyframes balloonAnimationSecond {
-  0%,
-  100% {
-    transform: translate(-20px, -20px);
-  }
-  50% {
-    transform: translate(20px, 20px);
-  }
+  display: block;
 }
 
 .baloon-img.first {
@@ -68,10 +44,19 @@
   width: 247px;
   height: 250px;
   transform: rotate(9deg);
-
   bottom: 40px;
   right: -70px;
   animation: balloonAnimationSecond 3s infinite;
+}
+
+@keyframes balloonAnimationFirst {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+}
+
+@keyframes balloonAnimationSecond {
+  0%, 100% { transform: translate(-20px, -20px); }
+  50% { transform: translate(20px, 20px); }
 }
 
 .hero-content {
@@ -168,7 +153,6 @@
     width: 372px;
     height: 377px;
     transform: rotate(-37deg);
-
     top: 50px;
     left: 40px;
   }
@@ -176,7 +160,6 @@
     width: 406px;
     height: 411px;
     transform: rotate(9deg);
-
     bottom: 20px;
     right: 20px;
   }

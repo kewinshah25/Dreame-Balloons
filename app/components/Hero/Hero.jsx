@@ -1,21 +1,29 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import "./Hero.css";
 
 const Hero = () => {
+  const [showBalloon1, setShowBalloon1] = useState(true);
+  const [showBalloon2, setShowBalloon2] = useState(true);
+
   return (
     <section className='hero-section'>
-      <Image
-        src="/assets/images/balloon1.png"
-        alt="Balloon"
-        width={398}
-        height={404}
-        className='baloon-img first'
-        priority
-      />
-      <motion.div className='hero-content'
+      {showBalloon1 && (
+        <Image
+          src="/assets/images/balloon1.png"
+          alt=""
+          width={398}
+          height={404}
+          className='baloon-img first'
+          priority
+          onError={() => setShowBalloon1(false)}
+        />
+      )}
+      <motion.div
+        className='hero-content'
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -41,14 +49,17 @@ const Hero = () => {
           Get a quote
         </motion.a>
       </motion.div>
-      <Image
-        src="/assets/images/balloon2.png"
-        alt="Balloon"
-        width={460}
-        height={469}
-        className='baloon-img second'
-        priority
-      />
+      {showBalloon2 && (
+        <Image
+          src="/assets/images/balloon2.png"
+          alt=""
+          width={460}
+          height={469}
+          className='baloon-img second'
+          priority
+          onError={() => setShowBalloon2(false)}
+        />
+      )}
     </section>
   );
 };

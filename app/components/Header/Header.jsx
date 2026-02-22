@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
-import CloseBtn from "../../../public/assets/icons/close-square.svg";
-import Logo from "../../../public/assets/icons/logo.svg";
-import MenuBurger from "../../../public/assets/icons/menu.svg";
+import CloseBtn from "@/public/assets/icons/close-square.svg";
+import MenuBurger from "@/public/assets/icons/menu.svg";
 import "./Header.css";
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,8 +54,8 @@ const Header = () => {
     <header className={`header ${scrolling ? "scrolling" : ""}`}>
       <div className='container'>
         <nav className={`navigation ${scrolling ? "scrolling" : ""}`}>
-          <a href='/' className={`logo ${scrolling ? "scrolling" : ""}`}>
-            <Logo aria-label='logo' />
+          <a href='/' className={`logo ${scrolling ? "scrolling" : ""}`} aria-label="Dreame Balloons">
+            Dreame Balloons
           </a>
           <button type='button' className='menu-btn' onClick={handleToggleMenu}>
             <p className={`menu-text ${scrolling ? "scrolling" : ""}`}>Menu</p>
@@ -78,38 +81,18 @@ const Header = () => {
               </button>
             </div>
             <div className='mobile-links'>
-              <Link
-                to='main'
-                smooth={true}
-                offset={-70}
-                onClick={handleToggleMenu}
-              >
+              <a href="#main" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("main"); }}>
                 Home
-              </Link>
-              <Link
-                to='about'
-                smooth={true}
-                offset={-100}
-                onClick={handleToggleMenu}
-              >
+              </a>
+              <a href="#about" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("about"); }}>
                 About Us
-              </Link>
-              <Link
-                to='reviews'
-                smooth={true}
-                offset={-100}
-                onClick={handleToggleMenu}
-              >
+              </a>
+              <a href="#reviews" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("reviews"); }}>
                 Reviews
-              </Link>
-              <Link
-                to='contacts'
-                smooth={true}
-                offset={-80}
-                onClick={handleToggleMenu}
-              >
+              </a>
+              <a href="#contacts" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("contacts"); }}>
                 Contact Us
-              </Link>
+              </a>
             </div>
           </div>
         </div>
