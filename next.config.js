@@ -1,15 +1,6 @@
 /** @type {import('next').NextConfig} */
-// GitHub Pages serves at https://<user>.github.io/<repo-name>/
-const repoName = "Dreame-Balloons";
-const basePath = process.env.NODE_ENV === "production" ? `/${repoName}` : "";
-
 const nextConfig = {
   reactStrictMode: true,
-  basePath,
-  assetPrefix: basePath || undefined,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
-  },
   // Required for GitHub Pages: static export so workflow can upload ./out
   output: "export",
   // Required when using output: 'export' — no Image Optimization API in static build
