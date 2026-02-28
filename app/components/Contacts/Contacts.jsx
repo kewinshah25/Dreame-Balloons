@@ -2,8 +2,8 @@
 
 import SubmitForm from "@/app/ui/SubmitForm/SubmitForm";
 import { motion } from "framer-motion";
-import Mail from "../../../public/Dreame-Balloons/assets/icons/mail.svg";
-import Phone from "../../../public/Dreame-Balloons/assets/icons/phone.svg";
+import Mail from "../../../public/assets/icons/mail.svg";
+import Phone from "../../../public/assets/icons/phone.svg";
 import "./Contacts.css";
 
 const Contacts = () => {
