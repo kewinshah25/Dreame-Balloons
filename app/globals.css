@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Anzeigen Grotesk T";
   src: local("Anzeigen Grotesk T"),
-    url("/Dreame-Balloons/assets/fonts/anzeigenGroteskTRegular/anzeigengrot.ttf") format("truetype");
+    url("/assets/fonts/anzeigenGroteskTRegular/anzeigengrot.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Inter";
-  src: local("Inter"), url("/Dreame-Balloons/assets/fonts/inter/medium.ttf") format("truetype");
+  src: local("Inter"), url("/assets/fonts/inter/medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
