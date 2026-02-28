@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./SubmitForm.css";
@@ -80,7 +80,7 @@ const SubmitForm = () => {
     <div className='wrapper'>
       {showBalloon1 && (
         <Image
-          src="/assets/images/balloon1.png"
+          src={`${base}/assets/images/balloon1.png`}
           alt=""
           width={398}
           height={404}
@@ -90,7 +90,7 @@ const SubmitForm = () => {
       )}
       {showBalloon2 && (
         <Image
-          src="/assets/images/balloon2.png"
+          src={`${base}/assets/images/balloon2.png`}
           alt=""
           width={460}
           height={469}
