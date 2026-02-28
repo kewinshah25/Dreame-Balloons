@@ -5,12 +5,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import "./Hero.css";
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const Hero = () => {
   const [showBalloon1, setShowBalloon1] = useState(true);
   const [showBalloon2, setShowBalloon2] = useState(true);
 
   return (
-    <section className='hero-section'>
+    <section
+      className='hero-section'
+      style={{ backgroundImage: `url(${base}/assets/images/hero.jpg)` }}
+    >
       {showBalloon1 && (
         <Image
           src="/assets/images/balloon1.png"
