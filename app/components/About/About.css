@@ -100,7 +100,6 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 24px;
-    margin: 24px auto;
   }
   .about-text {
     padding: 0 40px;
