@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/Dreame-Balloons",
   reactStrictMode: true,
   // Required for GitHub Pages: static export so workflow can upload ./out
   output: "export",
