@@ -6,6 +6,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./SubmitForm.css";
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const SubmitForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -80,7 +82,7 @@ const SubmitForm = () => {
     <div className='wrapper'>
       {showBalloon1 && (
         <Image
-          src="/assets/images/balloon1.png"
+          src={`${base}/assets/images/balloon1.png`}
           alt=""
           width={398}
           height={404}
@@ -90,7 +92,7 @@ const SubmitForm = () => {
       )}
       {showBalloon2 && (
         <Image
-          src="/assets/images/balloon2.png"
+          src={`${base}/assets/images/balloon2.png`}
           alt=""
           width={460}
           height={469}

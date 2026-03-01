@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 import "./Hero.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -18,7 +18,7 @@ const Hero = () => {
     >
       {showBalloon1 && (
         <Image
-          src="/assets/images/balloon1.png"
+          src={`${base}/assets/images/balloon1.png`}
           alt=""
           width={398}
           height={404}
@@ -56,7 +56,7 @@ const Hero = () => {
       </motion.div>
       {showBalloon2 && (
         <Image
-          src="/assets/images/balloon2.png"
+          src={`${base}/assets/images/balloon2.png`}
           alt=""
           width={460}
           height={469}
