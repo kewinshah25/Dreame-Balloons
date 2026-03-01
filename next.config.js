@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 // GitHub Pages serves at https://<user>.github.io/<repo-name>/
 const repoName = "Dreame-Balloons";
-const basePath = process.env.NODE_ENV === "production" ? `/${repoName}` : "";
 
-const nextConfig = {
+const nextConfig = {  
   reactStrictMode: true,
   basePath,
   assetPrefix: basePath || undefined,
