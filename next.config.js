@@ -3,6 +3,7 @@
 
 const nextConfig = {  
   reactStrictMode: true,
+  basePath: "/Dreame-Balloons",
   // Required for GitHub Pages: static export so workflow can upload ./out
   output: "export",
   // Required when using output: 'export' — no Image Optimization API in static build
