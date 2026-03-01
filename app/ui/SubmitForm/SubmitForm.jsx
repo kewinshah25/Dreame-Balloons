@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./SubmitForm.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
 const SubmitForm = () => {
   const [name, setName] = useState("");
@@ -15,18 +16,33 @@ const SubmitForm = () => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showBalloon1, setShowBalloon1] = useState(true);
   const [showBalloon2, setShowBalloon2] = useState(true);
+  const hasRestoredRef = useRef(false);
 
-  
+  // Restore draft from localStorage on mount
   useEffect(() => {
-  const savedData = JSON.parse(localStorage.getItem("formData"));
-  if (savedData) {
-    setName(savedData.name || "");
-    setEmail(savedData.email || "");
-    setMessage(savedData.message || "");
-  }
-}, []);
+    const savedData = JSON.parse(localStorage.getItem("formData"));
+    if (savedData) {
+      setName(savedData.name || "");
+      setEmail(savedData.email || "");
+      setMessage(savedData.message || "");
+    }
+    hasRestoredRef.current = true;
+  }, []);
+
+  // Save draft to localStorage as user types (debounced)
+  useEffect(() => {
+    if (!hasRestoredRef.current) return;
+    const timer = setTimeout(() => {
+      localStorage.setItem(
+        "formData",
+        JSON.stringify({ name, email, message })
+      );
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [name, email, message]);
 
   const handleNameChange = (event) => {
     const newName = event.target.value;
@@ -56,7 +72,7 @@ const SubmitForm = () => {
     setMessage(newMessage);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!name || !email || nameError || emailError) {
@@ -65,16 +81,37 @@ const SubmitForm = () => {
       setFormSubmitted(true);
       return;
     }
-    const formData = { name, email, message };
-    localStorage.setItem("formData", JSON.stringify(formData));
 
-    setName("");
-    setEmail("");
-    setMessage("");
-    setFormSubmitted(true);
-    toast.success("Message sent successfully! We'll be in touch soon.", {
-      position: "bottom-right",
-    });
+    if (!formspreeEndpoint) {
+      toast.error("Contact form is not configured. Please add NEXT_PUBLIC_FORMSPREE_FORM_ID.", {
+        position: "bottom-right",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeEndpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error("Send failed");
+      localStorage.removeItem("formData");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setFormSubmitted(false);
+      toast.success("Message sent successfully! We'll be in touch soon.", {
+        position: "bottom-right",
+      });
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.", {
+        position: "bottom-right",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
 
@@ -149,10 +186,10 @@ const SubmitForm = () => {
 
           <button
             type='submit'
-            disabled={nameError || emailError}
+            disabled={nameError || emailError || isSubmitting}
             className='form-btn'
           >
-            Send message
+            {isSubmitting ? "Sending…" : "Send message"}
           </button>
           <ToastContainer />
         </div>

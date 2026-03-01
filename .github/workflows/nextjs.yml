@@ -65,6 +65,8 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ vars.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       # out/ contains the static export; public/ is copied into out/ during build
       - name: Upload artifact
