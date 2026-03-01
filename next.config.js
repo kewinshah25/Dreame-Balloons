@@ -5,7 +5,7 @@ const basePath = "/Dreame-Balloons";
 
 const nextConfig = {
   reactStrictMode: true,
-  basePath,
+  basePath: basePath,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
