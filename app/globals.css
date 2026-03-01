@@ -24,6 +24,10 @@
   margin: 0;
 }
 
+html {
+  scroll-padding-top: 50px;
+}
+
 html,
 body {
   font-family: "Anzeigen Grotesk T", system-ui, sans-serif;
@@ -33,6 +37,14 @@ body {
   width: 100%;
   overflow-x: hidden;
   margin: 0 auto;
+}
+
+/* Keep scroll targets visible below fixed header */
+.hero-section,
+.about-section,
+.reviews-section,
+.contacts-section {
+  scroll-margin-top: 100px;
 }
 
 body::-webkit-scrollbar {

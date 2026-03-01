@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import CloseBtn from "@/public/assets/icons/close-square.svg";
 import MenuBurger from "@/public/assets/icons/menu.svg";
+import { useEffect, useState } from "react";
 import "./Header.css";
 
 function scrollToSection(id) {
-  const el = document.getElementById(id);
+  const el = document.getElementsByClassName(id)[0];
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -81,16 +81,16 @@ const Header = () => {
               </button>
             </div>
             <div className='mobile-links'>
-              <a href="#main" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("main"); }}>
+              <a href="#main" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("hero-section"); }}>
                 Home
               </a>
-              <a href="#about" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("about"); }}>
-                About Us
+              <a href="#about" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("about-section"); }}>
+                Why Choose Us
               </a>
-              <a href="#reviews" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("reviews"); }}>
+              <a href="#reviews" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("reviews-section"); }}>
                 Reviews
               </a>
-              <a href="#contacts" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("contacts"); }}>
+              <a href="#contacts" onClick={(e) => { e.preventDefault(); handleToggleMenu(); scrollToSection("contacts-section"); }}>
                 Contact Us
               </a>
             </div>
