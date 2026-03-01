@@ -9,9 +9,6 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  redirects: async () => [
-    { source: "/", destination: basePath, basePath: false, permanent: false },
-  ],
   // Required for GitHub Pages: static export so workflow can upload ./out
   output: "export",
   // Required when using output: 'export' — no Image Optimization API in static build
